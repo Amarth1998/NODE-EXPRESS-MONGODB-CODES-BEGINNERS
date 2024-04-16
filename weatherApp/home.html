@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+      }
+
+      .box {
+        position: relative;
+        margin: 50px auto;
+        width: 300px;
+        height: 300px;
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        animation: animate_background 40s linear infinite;
+        background-color: aqua;
+      }
+
+      .wave_one,
+      .wave_two,
+      .wave_three {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        height: 50px;
+        background: linear-gradient(to top, #fff, transparent);
+      }
+
+      .wave_two {
+        animation: animate_wave 2s linear infinite;
+        opacity: 0.6;
+      }
+
+      .wave_three {
+        animation: animate_wave 1.5s linear infinite;
+        opacity: 0.4;
+      }
+
+      @keyframes animate_wave {
+        0% {
+          transform: translateY(0);
+        }
+        100% {
+          transform: translateY(-50px);
+        }
+      }
+
+      @keyframes animate_background {
+        0% {
+          background-position: 0% 50%;
+        }
+        100% {
+          background-position: 100% 50%;
+        }
+      }
+
+      #weatheron {
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        font-size: 30px;
+      }
+
+      .info {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        color: #333;
+      }
+
+      .location {
+        font-size: 18px;
+        margin-bottom: 5px;
+      }
+
+      .temp {
+        font-size: 40px;
+        margin: 0;
+      }
+
+      .tempmin_max {
+        font-size: 14px;
+        margin: 5px 0 0;
+      }
+
+      @media screen and (max-width: 500px) {
+        .box {
+          width: 90%;
+          height: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="wave_one"></div>
+      <div class="wave_two"></div>
+      <div class="wave_three"></div>
+
+      <div id="weatheron">
+        <i class="fa-solid fa-sun" style="color: bisque"></i>
+      </div>
+
+      <div class="info">
+        <h2 class="location">
+          <i class="fa-solid fa-street-view"></i>{%location%},{%country%}
+        </h2>
+       
+        <p id="date">wed 24 2023</p>
+        <h1 class="temp">{%tempval%}&deg;C</h1>
+        <h3 class="tempmin_max">min {%tempvalmin%}&deg;C| max {%tempvalmax%}&deg;C</h3>
+      </div>
+    </div>
+
+    <script>
+      const curdate = document.getElementById("date");
+      const weatheron = document.getElementById("weatheron");
+      const tempStatus = "{%tempstatus%}";
+
+if (tempStatus == "Sunny"){ weatheron.innerHTML=  "<i class='fa-solid fa-sun' style='color: bisque'></i>"
+
+}
+else if(tempStatus == "Cloudy"){ weatheron.innerHTML=  "<i class='fas fa-cloud' ></i>"}
+else if(tempStatus == "Rainy"){ weatheron.innerHTML=  "<i class='fas fa-cloud-rain' ></i>"}
+else{weatheron.innerHTML=  "<i class='fas fa-cloud' ></i>"}
+
+      const getcurrentdate = () => {
+        const weekday = [
+          "Sun",
+          "Mon",
+          "Tue",
+          "Wed",
+          "Thurs",
+          "Fri",
+          "Sat",
+        ];
+        const d = new Date();
+        let day = weekday[d.getDay()];
+        return day;
+      };
+
+      const getcurrentime = () => {
+        const month = [
+          "Jan",
+          "Feb",
+          "Mar",
+          "Apr",
+          "May",
+          "Jun",
+          "Jul",
+          "Aug",
+          "Sep",
+          "Oct",
+          "Nov",
+          "Dec",
+        ];
+        const d = new Date();
+
+        let h = d.getHours();
+
+        let m = d.getMinutes();
+
+        let periods = "AM";
+        if (h > 11) {
+          periods == "PM";
+          if (h > 12) h -= 12;
+        }
+        if (m < 10) {
+          m = "0" + m;
+        }
+
+        var now = new Date();
+        var date = now.getDate();
+        let name = month[d.getMonth()];
+        return `${name} ${date}   |   ${h}:${m} ${periods} `;
+      };
+
+      curdate.innerHTML = getcurrentime() + " | " + getcurrentdate();
+    </script>
+  </body>
+</html>

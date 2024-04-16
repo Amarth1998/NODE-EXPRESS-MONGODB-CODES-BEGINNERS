@@ -1,0 +1,75 @@
+[
+    {
+        "id":1,
+        "name":"amarth",
+        "username":"AmarthTheGreat",
+        "email":"amarth@gmail.com",
+        "addres":{
+            "street":"456789 Elm Street",
+            "city":"vidisha",
+            "zipcode":"456123",
+            "geo":{
+                "lat":"12:47:88",
+                "lng":"81.892"
+            }
+        },
+        "phone":"88379303",
+        "website":"amarth.live",
+        "company":{
+            "name":"ion exchnage",
+            "catchPhrase":"User-centric fault",
+            "bs": "evolve seamless e-mark"
+
+        }
+    },
+    {
+        "id": 2,
+        "name": "Barack Obama",
+        "username": "presidentobama",
+        "email": "barack.obama@whitehouse.gov",
+        "address": {
+          "street": "1600 Pennsylvania Avenue Northwest",
+          "suite": "",
+          "city": "Washington D.C.",
+          "zipcode": "20500",
+          "geo": {
+            "lat": "38.8977",
+            "lng": "-77.0365"
+          }
+        },
+        "phone": "202-456-1111",
+        "website": "www.whitehouse.gov",
+        "company":{
+            "name":"ion exchnage",
+            "catchPhrase":"User-centric fault",
+            "bs": "evolve seamless e-mark"
+
+        }
+      
+    },
+    {
+        "id": 3,
+        "name": "Barack Obama",
+        "username": "presidentobama",
+        "email": "barack.obama@whitehouse.gov",
+        "address": {
+          "street": "1600 Pennsylvania Avenue Northwest",
+          "suite": "",
+          "city": "Washington D.C.",
+          "zipcode": "20500",
+          "geo": {
+            "lat": "38.8977",
+            "lng": "-77.0365"
+          }
+        },
+        "phone": "202-456-1111",
+        "website": "www.whitehouse.gov",
+        "company":{
+            "name":"ion exchnage",
+            "catchPhrase":"User-centric fault",
+            "bs": "evolve seamless e-mark"
+
+        }
+      
+    }
+]
